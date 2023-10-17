@@ -24,6 +24,15 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
         <Horizontal/>
         <div className="text-justify">{product.description}</div>
         <Horizontal/>
+        <div>
+            <span className="font-semibold">CATEGORY:</span>
+            {product.category}
+        </div>
+        <div>
+            <span className="font-semibold">BRAND:</span>
+            {product.brand}
+        </div>
+        <div className={product.inStock ? 'text-teal-400': 'text-rose-400'}>{product.inStock ? 'In Stock' : 'Out of Stock'}</div>
         </div>
         
         </div>
