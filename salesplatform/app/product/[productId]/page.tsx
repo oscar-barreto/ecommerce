@@ -1,8 +1,11 @@
-import React from 'react'
-
-const ProductPage = () => {
+interface IPrams{
+    productId?:string
+}
+const ProductPage = ({params}:{params:IPrams}) => {
   return (
-    <div>ProductPage</div>
+    <div>
+        
+    </div>
   )
 }
 
