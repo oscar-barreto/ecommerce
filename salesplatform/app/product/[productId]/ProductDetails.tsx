@@ -2,6 +2,10 @@
 import { Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 import SetColor from "../SetColor";
+import SetQuantity from "../SetQuantity";
+import Button from "@/app/components/Button";
+
+
 interface ProductDetailsProps{
     product: any;
 }
@@ -44,13 +48,30 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
 
     const productRating = product.reviews.reduce((acc:number,item:any)=> item.rating+ acc,0) / product.reviews.length;
 
-
     const handleColorSelect = useCallback(
         (value:SelectedImgType)=>{
             setCartProduct((prev)=>{
                 return {...prev, selectedImg:value}
             })
         }, [cartProduct.selectedImg] )
+
+        const handleQtyIncrease = useCallback(()=>{
+            setCartProduct((prev)=>{
+                return{...prev, quantity:++prev.quantity}
+            })
+        }, []);
+
+        // FUNCTION THAT HANDLES DECREASE MUST CONTAIN WAY TO PREVENT NEGATIVE NUMBERS
+        const handleQtyDecrease = useCallback(()=>{
+
+            if(cartProduct.quantity === 1){
+                return;
+            }
+            setCartProduct((prev)=>{
+                return {...prev, quantity: --prev.quantity}
+            })
+        },[]);
+
 
   return (
     <div className="grid grid-cols-1  md:grid-cols-2 gap-12">
@@ -76,9 +97,11 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
         <Horizontal/>
         <SetColor cartProduct={cartProduct} images={product.images} handleColorSelect={handleColorSelect}/>
         <Horizontal/>
-        <div>quantity</div>
+        <SetQuantity cartProduct={cartProduct} handleQtyIncrease={handleQtyIncrease} handleQtyDecrease={handleQtyDecrease}/>
         <Horizontal/>
-        <div>add to cart</div>
+        <div className="max-w-[300px]">
+        <Button label='ADD TO CART' onClick={()=>{}}/>
+        </div>
         </div>
         
         </div>
