@@ -40,7 +40,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
     price: product.price,
     })
 
+    console.log(cartProduct)
+
     const productRating = product.reviews.reduce((acc:number,item:any)=> item.rating+ acc,0) / product.reviews.length;
+
 
     const handleColorSelect = useCallback(
         (value:SelectedImgType)=>{
