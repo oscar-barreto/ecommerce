@@ -1,10 +1,11 @@
-'use client'
+'use client';
+
 import { Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 import SetColor from "../SetColor";
 import SetQuantity from "../SetQuantity";
 import Button from "@/app/components/Button";
-import ProductImages from "../ProductImages";
+import ProductImage from "../ProductImage";
 
 
 interface ProductDetailsProps{
@@ -44,23 +45,29 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
     quantity: 1,
     price: product.price,
     })
-
-    console.log(cartProduct)
-
     const productRating = product.reviews.reduce((acc:number,item:any)=> item.rating+ acc,0) / product.reviews.length;
 
-    const handleColorSelect = useCallback(
-        (value:SelectedImgType)=>{
-            setCartProduct((prev)=>{
-                return {...prev, selectedImg:value}
-            })
-        }, [cartProduct.selectedImg] )
+    // const handleColorSelect = useCallback(
+    //     (value:SelectedImgType)=>{
+    //         setCartProduct((prev)=>{
+    //             return {...prev, selectedImg:value}
+    //         })
+    //     }, [cartProduct.selectedImg] )
 
-        const handleQtyIncrease = useCallback(()=>{
+     const handleQtyIncrease = useCallback(()=>{
             setCartProduct((prev)=>{
                 return{...prev, quantity:++prev.quantity}
             })
         }, []);
+
+    const handleColorSelect = useCallback(
+        (value: SelectedImgType)=> {
+            setCartProduct((prev)=>{
+                return {...prev, selectedImg: value};
+            });
+        }, 
+        [cartProduct.selectedImg]
+    )
 
         // FUNCTION THAT HANDLES DECREASE MUST CONTAIN WAY TO PREVENT NEGATIVE NUMBERS
         const handleQtyDecrease = useCallback(()=>{
@@ -76,7 +83,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
 
   return (
     <div className="grid grid-cols-1  md:grid-cols-2 gap-12">
-        <ProductImages cartProduct={cartProduct} product={product} handleColorSelect={handleColorSelect}/>
+        <ProductImage cartProduct={cartProduct} product={product} handleColorSelect={handleColorSelect}/>
         <div className="flex flex-col gap-1 text-slate-500 text-sm">
             <h2 className="text-3xl font-medium text-slate-700">{product.name}</h2>
             <div className="flex items-center gap-2">

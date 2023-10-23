@@ -1,5 +1,4 @@
 'use client'
-
 import { CartProductType, SelectedImgType } from "./[productId]/ProductDetails"
 
 interface SetColorProps{
