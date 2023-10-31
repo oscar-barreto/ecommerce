@@ -1,12 +1,14 @@
-import { product } from "@/app/utils/product";
 import Container from "@/app/components/Container";
 import ProductDetails from "./ProductDetails";
 import ListRating from '@/app/product/[productId]/ListRating';
+import { products } from "@/app/utils/products";
 
 interface IPrams{
     productId?:string
 }
 const ProductPage = ({params}:{params:IPrams}) => {
+
+  const product = products.find((item)=>item.id=== params.productId)
   return (
     <div className="p-8">
         <Container>

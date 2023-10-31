@@ -12,19 +12,28 @@ import {
     useCallback,
   } from "react";
 import ItemContent from "./ItemContent";
+import { formatPrice } from "../utils/formatPrice";
 
 const CartClient = () => {
-    const {cartProducts} = useCart();
-    if(!cartProducts || cartProducts.length === 0 ){
-        return 
-        <div className="flex flex-col items-center">
-            <div>Your cart is empty</div>
-            <Link  className={'text-slate-500 flex items-center gap-1 mt-2'} href={'/'}>
-                <MdArrowBack/>
-                <span>Start shopping</span>
-            </Link>
+    const {cartProducts, handleClearCart, cartTotalAmount} = useCart();
+
+
+     if (!cartProducts || cartProducts.length === 0) {
+    return (
+      <div className="flex flex-col items-center">
+        <div className="text-2xl">Your cart is empty</div>
+        <div>
+          <Link
+            href={"/"}
+            className="text-slate-500 flex items-center gap-1 mt-2"
+          >
+            <MdArrowBack />
+            <span>Start Shopping</span>
+          </Link>
         </div>
-    }
+      </div>
+    );
+  }
   return (
     <div>
     <h2 className="text-2xl text-center mb-8">Shopping Cart</h2>
@@ -55,7 +64,7 @@ const CartClient = () => {
         <Button
           label="Clear Cart"
           onClick={() => {
-            handleClearCart();
+            handleClearCart()
           }}
           small
           outline
@@ -64,7 +73,7 @@ const CartClient = () => {
       <div className="text-sm flex flex-col gap-1 items-start">
         <div className="flex justify-between w-full text-base font-semibold">
           <span>Subtotal</span>
-          <span>$1000</span>
+          <span>{formatPrice(cartTotalAmount)}</span>
         </div>
         <p className="text-slate-500">
           Taxes and shipping calculated at checkout
