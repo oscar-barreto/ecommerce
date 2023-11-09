@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import Container from "../Container";
 import CartCount from "./CartCount";
-import UserMenu from "./UserMenu";
 import { SafeUser } from "@/types";
 import Categories from "./Categories";
 import SearchBar from "./SearchBar";
