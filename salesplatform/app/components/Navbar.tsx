@@ -4,6 +4,7 @@ import Container from "./Container";
 import CartCount from "../cart/CartCount";
 import { SafeUser } from "@/types";
 import UserMenu from "./UserMenu";
+import getCurrentUser from "@/actions/getCurrentUser";
 
 interface NavBarProps {
   currentUser: SafeUser | null;
@@ -11,7 +12,8 @@ interface NavBarProps {
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
-const NavBar: React.FC<NavBarProps> = ({ currentUser }) => {
+const NavBar: React.FC<NavBarProps> = async () => {
+  const currentUser = await getCurrentUser();
   return (
     <div
       className="
