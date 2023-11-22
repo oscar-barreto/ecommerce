@@ -13,9 +13,18 @@ import {
   } from "react";
 import ItemContent from "./ItemContent";
 import { formatPrice } from "../utils/formatPrice";
+import { SafeUser } from "@/types";
+import { useRouter } from "next/navigation";
 
-const CartClient = () => {
+
+interface CartClient{
+  currentUser: SafeUser | null
+}
+
+const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
+
     const {cartProducts, handleClearCart, cartTotalAmount} = useCart();
+    const router= useRouter();
 
 
      if (!cartProducts || cartProducts.length === 0) {
@@ -67,26 +76,32 @@ const CartClient = () => {
             handleClearCart()
           }}
           small
-          outline
+          outline={currentUser ? false : true}
         />
       </div>
       <div className="text-sm flex flex-col gap-1 items-start">
-        <div className="flex justify-between w-full text-base font-semibold">
-          <span>Subtotal</span>
-          <span>{formatPrice(cartTotalAmount)}</span>
+          <div className="flex justify-between w-full text-base font-semibold">
+            <span>Subtotal</span>
+            <span>${cartTotalAmount}</span>
+          </div>
+          <p className="text-slate-500">
+            Taxes and shipping calculated at checkout
+          </p>
+          <Button
+            label={currentUser ? "Checkout" : "Login To Checkout"}
+            outline={currentUser ? false : true}
+            onClick={() => {
+              currentUser ? router.push("/checkout") : router.push("/login");
+            }}
+          />
+          <Link
+            href={"/"}
+            className="text-slate-500 flex items-center gap-1 mt-2"
+          >
+            <MdArrowBack />
+            <span>Continue Shopping</span>
+          </Link>
         </div>
-        <p className="text-slate-500">
-          Taxes and shipping calculated at checkout
-        </p>
-        <Button onClick={()=>{}} label='Checkout'/>
-        <Link
-          href={"/"}
-          className="text-slate-500 flex items-center gap-1 mt-2"
-        >
-          <MdArrowBack />
-          <span>Continue Shopping</span>
-        </Link>
-      </div>
     </div>
   </div>
   )

@@ -41,7 +41,7 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
         text-slate-700
         "
         >
-          <Avatar />
+          <Avatar src={currentUser?.image}/>
           <AiFillCaretDown />
         </div>
 

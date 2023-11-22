@@ -12,6 +12,8 @@ type CartContextType ={
     handleCartQtyIncrease: (product: CartProductType) => void,
     handleClearCart: () => void,
     cartTotalAmount: number,
+    paymentIntent: string | null,
+    handleSetPaymentIntent:(val:string | null) => void,
 
 }
 
@@ -25,17 +27,17 @@ export const CartContextProvider = (props: Props) => {
     const [cartTotalQty, setCartTotalQty] = useState(0);
     const [cartTotalAmount, setCartTotalAmount] = useState(0);
     const [cartProducts, setCartProducts] = useState<CartProductType[] | null >(null);
+    const [paymentIntent, setPaymentIntent] = useState<string | null>(null);
 
-
-    console.log('qty', cartTotalQty)
-    console.log('amount', cartTotalAmount)
-
-
-    useEffect(()=>{
-        const cartItems: any = localStorage.getItem('eShopCartItems')
-        const cProducts: CartProductType[] | null = JSON.parse(cartItems)
-        setCartProducts(cProducts)
-    },[])
+    useEffect(() => {
+        const cartItems: any = localStorage.getItem("eShopCartItems");
+        const cartProducts: CartProductType[] | null = JSON.parse(cartItems);
+        const eShopPaymentIntent: any = localStorage.getItem("eShopPaymentIntent");
+        const paymentIntent: string | null = JSON.parse(eShopPaymentIntent);
+    
+        setCartProducts(cartProducts);
+        setPaymentIntent(paymentIntent);
+      }, []);
 
     useEffect(() => {
         const getTotals = () => {
@@ -133,6 +135,14 @@ export const CartContextProvider = (props: Props) => {
         localStorage.setItem('eShopCartItems', JSON.stringify(null))
     },[cartProducts])
     
+    const handleSetPaymentIntent = useCallback(
+        (val: string | null) => {
+          console.log("setting payment intent");
+          setPaymentIntent(val);
+          localStorage.setItem("eShopPaymentIntent", JSON.stringify(val));
+        },
+        [paymentIntent]
+      );
 
     const value = {
         cartProducts,
@@ -143,6 +153,8 @@ export const CartContextProvider = (props: Props) => {
         handleCartQtyIncrease,
         handleRemoveProductFromCart,
         handleClearCart,
+        paymentIntent,
+        handleSetPaymentIntent,
     }
     return <CartContext.Provider value={value} {...props} />;
 }
