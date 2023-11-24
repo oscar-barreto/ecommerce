@@ -1,18 +1,17 @@
 import AdminNav from "../components/AdminNav";
- 
-export const metadata={
-    title:'E-Shop Admin',
-    description:'E-Shop Admin Dashboard',
-    
-}
 
-const AdminLayout = ({children}:{children:React.ReactNode }) => {
+export const metadata = {
+  title: "E-Shop Admin",
+  description: "E-Shop Admin Dashboard",
+};
+
+const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-        <AdminNav/>
-        {children}
+      <AdminNav />
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default AdminLayout
+export default AdminLayout;
