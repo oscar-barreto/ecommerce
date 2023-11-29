@@ -5,7 +5,7 @@ import CartCount from "../cart/CartCount";
 import { SafeUser } from "@/types";
 import UserMenu from "./UserMenu";
 import Categories from "./Categories";
-// import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar";
 
 interface NavBarProps {
   currentUser: SafeUser | null;
@@ -44,7 +44,7 @@ const NavBar: React.FC<NavBarProps> = ({ currentUser }) => {
               E~Shop
             </Link>
             <div className="hidden md:block">
-              {/* <SearchBar /> */}
+              <SearchBar />
             </div>
             <div className="flex items-center gap-8 md:gap-12">
               <CartCount />
