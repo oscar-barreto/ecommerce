@@ -4,7 +4,8 @@ import Container from "./Container";
 import CartCount from "../cart/CartCount";
 import { SafeUser } from "@/types";
 import UserMenu from "./UserMenu";
-import getCurrentUser from "@/actions/getCurrentUser";
+import Categories from "./Categories";
+// import SearchBar from "./SearchBar";
 
 interface NavBarProps {
   currentUser: SafeUser | null;
@@ -12,8 +13,7 @@ interface NavBarProps {
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
-const NavBar: React.FC<NavBarProps> = async () => {
-  const currentUser = await getCurrentUser();
+const NavBar: React.FC<NavBarProps> = ({ currentUser }) => {
   return (
     <div
       className="
@@ -44,6 +44,7 @@ const NavBar: React.FC<NavBarProps> = async () => {
               E~Shop
             </Link>
             <div className="hidden md:block">
+              {/* <SearchBar /> */}
             </div>
             <div className="flex items-center gap-8 md:gap-12">
               <CartCount />
@@ -52,6 +53,7 @@ const NavBar: React.FC<NavBarProps> = async () => {
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 };
