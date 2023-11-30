@@ -1,4 +1,3 @@
-import { Redressed } from "next/font/google";
 import Link from "next/link";
 import Container from "./Container";
 import CartCount from "../cart/CartCount";
@@ -11,21 +10,20 @@ interface NavBarProps {
   currentUser: SafeUser | null;
 }
 
-const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
-
 const NavBar: React.FC<NavBarProps> = ({ currentUser }) => {
   return (
     <div
       className="
+    text-slate-950
     sticky
     w-full
-    bg-slate-200
+    px-8
     z-30
-    shadow-sm
     top-0
+    bg-[#EDEEF2]
     "
     >
-      <div className="py-4 border-b-[1px]">
+      <div className=" pt-5 bg-[#EDEEF2]">
         <Container>
           <div
             className="
@@ -39,12 +37,12 @@ const NavBar: React.FC<NavBarProps> = ({ currentUser }) => {
           >
             <Link
               href="/"
-              className={`${redressed.className} font-bold text-2xl`}
+              className={` font-bold text-2xl`}
             >
-              E~Shop
+             SalesPlatform
             </Link>
             <div className="hidden md:block">
-              <SearchBar />
+              {/* <SearchBar /> */}
             </div>
             <div className="flex items-center gap-8 md:gap-12">
               <CartCount />
@@ -53,7 +51,7 @@ const NavBar: React.FC<NavBarProps> = ({ currentUser }) => {
           </div>
         </Container>
       </div>
-      <Categories />
+      {/* <Categories /> */}
     </div>
   );
 };

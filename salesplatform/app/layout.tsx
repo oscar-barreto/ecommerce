@@ -2,11 +2,12 @@ import CartProvider from "./providers/CartProvider";
 import getCurrentUser from "../actions/getCurrentUser";
 import NavBar from "./components/Navbar";
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Open_Sans, Poppins } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/Footer";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
+const OpenSans = Open_Sans({subsets:['latin'], weight:["300"]})
 
 export const metadata = {
   title: "SalesPlatform",
@@ -22,7 +23,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${poppins.className} text-slate-700`}>
+      <body className={`${OpenSans.className} text-slate-700`}>
         <Toaster
           toastOptions={{
             style: {
