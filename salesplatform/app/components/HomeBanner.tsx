@@ -25,13 +25,14 @@ const HomeBanner = () => {
     //         </div>
     //     </div>
     // </div>
-    <div className='grid bg-[#EDEEF2] mb-10'>
-      <div className='grid-cols-7 grid'>
-        <div className='col-span-4 border-t p-8 border-slate-950'>
+    <div className='grid bg-[#EDEEF2] mt-4 md:mb-10'>
+
+      <div className='md:grid-cols-7 grid-cols-2 grid'>
+        <div className='md:col-span-4 cols-span-1 border-t p-2 md:p-8 border-slate-950'>
             <div className='flex mb-4'>
-              <div className={`${orbitron.className} text-6xl text-slate-950`}>
+              <div className={`${orbitron.className} md:text-6xl text-sm text-slate-950`}>
               <span className='flex justify-end'>
-             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-14 h-14">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 md:w-14 md:h-14">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
 
@@ -42,28 +43,30 @@ const HomeBanner = () => {
 
             
             </div>
-            <div>
+            <div className='py-1'>
               <SearchBar/>
             </div>
         </div>
-        <div className='col-span-3 border h-full border-slate-950'>
-          <Image alt='customer' src={phoneUser}/>
+        <div className='md:col-span-3 col-span-1 relative border h-full border-slate-950'>
+          <Image fill alt='customer' src={phoneUser}/>
         </div>
       </div>
-      <div className='grid grid-cols-7'>
 
-        <div className='col-span-2 border border-slate-950 p-8 flex-col bg-slate-950 text-white'>
+
+      <div className='grid grid-cols-2 md:grid-cols-7'>
+
+        <div className='md:col-span-2 col-span-1 border border-slate-950 p-2 md:p-8 flex-col bg-slate-950 text-white'>
             <div className='flex justify-between mb-10'>
-              <div className={`${orbitron.className}`}>CUSTOMERS</div>
-              <div className=''>/2023</div>
+              <div className={`${orbitron.className} text-xs`}>CUSTOMERS</div>
+              <div className='text-xs'>/2023</div>
             </div>
             <div className={`flex ${orbitron.className}`}>
-              <div className='md:text-6xl font-bold'>10000</div>
-              <div className='text-[#1DB954] font-extrabold text-4xl'>+</div>
+              <div className='md:text-6xl text-lg font-bold'>10000</div>
+              <div className='text-[#1DB954] font-extrabold text-lg md:text-4xl'>+</div>
             </div>
 
         </div>
-        <div className='col-span-2 p-8 border border-slate-950  bg-[#35B084] text-white'>
+        <div className='md:col-span-2 col-span-1 p-2 md:p-8 border border-slate-950  bg-[#35B084] text-white'>
             <div className='flex mb-10 justify-between'>
               <div>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
@@ -72,34 +75,35 @@ const HomeBanner = () => {
               </svg>
 
               </div>
-              <div className='border-white border rounded-xl py-1 px-2 text-xs'>BRANDS</div>
+              <div className='border-white border rounded-xl py-1 px-2 md:text-xs text-[8px]'>BRANDS</div>
             </div>
             <div className='flex justify-between'>
-              <div className={`text-white text-lg ${nunito.className}`}>Easily track <br />your favorite brands</div>
+              <div className={`text-white text-md md:text-lg ${nunito.className}`}>Easily track <br />your favorite brands</div>
               <div className='flex items-end'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-7 h-7">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 md:w-7 md:h-7">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25" />
               </svg>
               </div>
             </div>
         </div>
-        <div className='col-span-3 p-8 bg-[#EDEEF2]'>
+        <div className='border border-slate-950 md:border-0 md:col-span-3 col-span-2 p-8 bg-[#EDEEF2]'>
           <div className='flex justify-between mb-10'>
             <div className=''>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-7 h-7 text-slate-950">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 md:w-7 md:h-7 text-slate-950">
             <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
           </svg>
             </div>
-            <div className='flex items-center text-slate-950 border text-xs border-slate-950 rounded-xl py-2 px-2'>
+
+            <div className='flex items-center text-slate-950 border text-[8px] md:text-xs border-slate-950 rounded-xl p-1 md:py-2 md:px-2'>
                Rating:
                <Rating value={5} readOnly size='small'/>
             </div>
           </div>
           <div className='flex justify-between'>
             <div>
-              <Image width={100} src={users}/>
+              <Image className='' width={100} src={users}/>
             </div>
-            <div className='text-sm text-slate-950'>Helping customers find the best prices <br /> available in the market</div>
+            <div className='text-xs md:text-sm text-slate-950'>Helping customers find the best prices <br className='md:block hidden' /> available in the market</div>
           </div>
         </div>
       </div>

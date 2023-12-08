@@ -27,7 +27,10 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
         <div
           onClick={toggleOpen}
           className="
-        px-4 py-3
+        md:px-4
+        md:py-3
+        px-2
+        py-1
         border-[1px]
         border-slate-400
         flex
@@ -42,7 +45,7 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
         bg-slate-950
         "
         >
-          <p className="text-white">User Menu</p>
+          <p className="text-white md:text-lg text-[10px]">User Menu</p>
           <Avatar src={currentUser?.image}/>
           <AiFillCaretDown />
         </div>

@@ -17,7 +17,7 @@ const NavBar: React.FC<NavBarProps> = ({ currentUser }) => {
     text-slate-950
     sticky
     w-full
-    px-8
+    md:px-8
     z-30
     top-0
     bg-[#EDEEF2]
@@ -33,11 +33,12 @@ const NavBar: React.FC<NavBarProps> = ({ currentUser }) => {
           justify-between
           gap-3
           md:gap-0
+          px-4
           "
           >
             <Link
               href="/"
-              className={` font-bold text-2xl`}
+              className={` font-bold text-lg md:text-2xl`}
             >
              SalesPlatform
             </Link>
