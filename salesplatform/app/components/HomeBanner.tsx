@@ -101,7 +101,7 @@ const HomeBanner = () => {
           </div>
           <div className='flex justify-between'>
             <div>
-              <Image className='' width={100} src={users}/>
+              <Image alt='banner image' className='' width={100} src={users}/>
             </div>
             <div className='text-xs md:text-sm text-slate-950'>Helping customers find the best prices <br className='md:block hidden' /> available in the market</div>
           </div>

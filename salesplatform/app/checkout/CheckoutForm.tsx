@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "../hooks/useCart";
 import Heading from "../components/Heading";
 import Button from "../components/Button";
+import toast from "react-hot-toast";
 import {
     PaymentElement,
     useStripe,

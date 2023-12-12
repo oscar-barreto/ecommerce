@@ -72,6 +72,7 @@ const LoginForm: React.FC<LoginUserProps> = ({ currentUser }) => {
         icon={AiOutlineGoogle}
         onClick={() => {
           signIn("google");
+          console.log(currentUser)
         }}
       />
       <hr className="bg-slate-300 w-full h-px" />

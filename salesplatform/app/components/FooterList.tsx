@@ -1,4 +1,4 @@
-interface FooterListrProps{
+interface FooterListProps{
     children:React.ReactNode
   }
 

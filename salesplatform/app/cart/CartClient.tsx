@@ -17,11 +17,11 @@ import { SafeUser } from "@/types";
 import { useRouter } from "next/navigation";
 
 
-interface CartClient{
-  currentUser: SafeUser | null
+interface CurrentUserProps {
+  currentUser: SafeUser | null;
 }
 
-const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
+const CartClient: React.FC<CurrentUserProps> = ({ currentUser }) => {
 
     const {cartProducts, handleClearCart, cartTotalAmount} = useCart();
     const router= useRouter();
@@ -62,6 +62,7 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
     <div>
       {cartProducts &&
         cartProducts.map((item) => {
+          console.log(item);
           return <ItemContent key={item.id} item={item}/>;
         })}
     </div>

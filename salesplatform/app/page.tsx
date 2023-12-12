@@ -8,25 +8,30 @@ import { IProductParams } from "@/actions/getProducts";
 import NullData from "./components/NullData";
 import Categories from "./components/Categories";
 
-interface HomeProps{
-  searchParams:IProductParams,
+interface HomeProps {
+  searchParams: IProductParams;
 }
 
-const Home =  async ({searchParams}:HomeProps) => {
-  const products = await getProducts(searchParams)
+ async function Home({ searchParams }: HomeProps) {
+  const { category, searchTerm } = searchParams;
+  const products = await getProducts(category, searchTerm);
 
-  if(products.length === 0){
-    return <NullData title="Whoops. No products found. Click 'All' to clear filters"/>
+  if (products.length === 0) {
+    return (
+      <NullData title="Oops! No products found. Click 'All' to clear filters." />
+    );
   }
 
-  function shuffleArray(array: any){
-    for(let i = array.length - 1; i>0; i-- ){
-      const j = Math.floor(Math.random()*(i+1));
-      [array[i], array[j]] = [array[j],array[i]]
+  // Fisher-Yates shuffle algorithm
+  function shuffleArray(array: any) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
-    return array
+    return array;
   }
-  const shuffledProducts = shuffleArray(products)
+
+  const shuffledProducts = shuffleArray(products);
 
   return (
     <div className='md:p-8 p-2 bg-[#EDEEF2]'>
@@ -36,7 +41,10 @@ const Home =  async ({searchParams}:HomeProps) => {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 bg-slate-50 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8 ">
           {shuffledProducts.map((product:any)=>{
-            return <ProductCard data={product}/>
+            return  <ProductCard
+            key={product.id}
+            data={product}
+          />
           }
             )}
           </div>

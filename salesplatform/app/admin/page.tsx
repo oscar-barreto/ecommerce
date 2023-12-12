@@ -9,7 +9,8 @@ import getCurrentUser from "@/actions/getCurrentUser";
 import NullData from "../components/NullData";
 
 const Admin = async () => {
-  const products = await getProducts({ category: null });
+  const products = await getProducts(null, null);
+  // const products = await getProducts({ category: null });
   const orders = await getOrders();
   const users = await getUsers();
   const aggregatedData = await getGraphData();

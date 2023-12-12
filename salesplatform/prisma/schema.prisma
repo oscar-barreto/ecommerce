@@ -70,15 +70,15 @@ model Review {
 }
 
 model Order {
-    id              String            @id @default(auto()) @map("_id") @db.ObjectId
-    userId          String            @db.ObjectId
+    id              String        @id @default(auto()) @map("_id") @db.ObjectId
+    userId          String        @db.ObjectId
     amount          Float
     currency        String
     status          String
     deliveryStatus  String?
-    createdDate     DateTime          @default(now())
-    paymentIntentID String?           @unique
-    products        CartProductType[]
+    createdDate     DateTime      @default(now())
+    paymentIntentID String?       @unique
+    products        CartProduct[]
     address         Address?
 
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -90,7 +90,7 @@ type Image {
     image     String
 }
 
-type CartProductType {
+type CartProduct {
     id          String
     name        String
     description String
