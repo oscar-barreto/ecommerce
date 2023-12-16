@@ -77,12 +77,6 @@ const RegisterForm: React.FC<RegisterUserProps> = ({ currentUser }) => {
   return (
     <>
       <Heading title="Sign up for E~Shop" />
-      {/* <Button
-        outline
-        label="Sign up with Google"
-        icon={AiOutlineGoogle}
-        onClick={() => {signIn('google')}}
-      /> */}
       <hr className="bg-slate-300 w-full h-px" />
       <Input
         id="name"
@@ -124,3 +118,11 @@ const RegisterForm: React.FC<RegisterUserProps> = ({ currentUser }) => {
 };
 
 export default RegisterForm;
+
+
+      {/* <Button
+        outline
+        label="Sign up with Google"
+        icon={AiOutlineGoogle}
+        onClick={() => {signIn('google')}}
+      /> */}
