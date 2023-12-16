@@ -66,15 +66,6 @@ const LoginForm: React.FC<LoginUserProps> = ({ currentUser }) => {
   return (
     <>
       <Heading title="Sign in to E~Shop" />
-      {/* <Button
-        outline
-        label="Continue with Google"
-        icon={AiOutlineGoogle}
-        onClick={() => {
-          signIn("google");
-          console.log(currentUser)
-        }}
-      /> */}
       <hr className="bg-slate-300 w-full h-px" />
       <Input
         id="email"
@@ -109,3 +100,14 @@ const LoginForm: React.FC<LoginUserProps> = ({ currentUser }) => {
 };
 
 export default LoginForm;
+
+
+      {/* <Button
+        outline
+        label="Continue with Google"
+        icon={AiOutlineGoogle}
+        onClick={() => {
+          signIn("google");
+          console.log(currentUser)
+        }}
+      /> */}
